@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>POLIPONI 2026 | Tiket Resmi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+ body{
+    font-family:Poppins,sans-serif;
+    background:#f4f7fc;
+    color:#1e293b;
+    padding-bottom:110px
+}
+.header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.brand{display:flex;align-items:center;gap:2px}
+.brand img{width:52px;height:52px}
+.brand h1{font-size:30px;font-weight:800;letter-spacing:-1px}
+.brand p{font-size:10px;color:#64748b;font-weight:600}
+.right{display:flex;gap:8px}
+.country,.menu{height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.country{padding:0 12px;background:#fff;border:1px solid #e2e8f0;font-weight:700}
+.menu{width:40px;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff}
+.wrap{
+    max-width:950px;
+    margin:auto;
+    padding:18px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+/* ==========================
+PROGRESS TIKET TERJUAL
+========================== */
+
+.progress-wrap{
+    background:#fff;
+    border-radius:20px;
+    padding:18px;
+    margin:18px 0;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+    animation:fadeUp .7s ease;
+}
+
+.progress-text{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:15px;
+    font-weight:800;
+    color:#1e293b;
+    margin-bottom:12px;
+}
+
+.progress-text span{
+    color:#16a34a;
+}
+
+.progress-bar{
+    width:100%;
+    height:14px;
+    background:#e2e8f0;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:85%;
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,#22c55e,#16a34a);
+    animation:progressFill 2s ease;
+}
+
+@keyframes progressFill{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:85%;
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
+}
+.hero{position:relative}
+.hero img{width:100%;display:block;border-radius:22px}
+.overlay{position:absolute;inset:0;border-radius:22px;background:linear-gradient(to top,rgba(0,0,0,.72),transparent 60%)}
+.event{position:absolute;left:18px;bottom:18px;color:#fff}
+.event h2{font-size:22px}
+.page-title{margin:16px 4px 12px}
+.page-title h3{font-size:22px}
+.page-title p{font-size:13px;color:#64748b}
+.progress{background:#fff;padding:16px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);margin-bottom:16px}
+.steps{display:flex;align-items:center}
+.step{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+.active{background:#2563eb;color:#fff}.inactive{background:#e2e8f0;color:#94a3b8}
+.line{flex:1;height:5px;margin:0 6px;border-radius:99px;background:#e2e8f0}.line.active-line{background:#2563eb}
+.labels{display:flex;justify-content:space-between;font-size:11px;color:#64748b;margin-top:8px}
+.ticket{background:#fff;border-radius:20px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.ticket:before,.ticket:after{content:'';position:absolute;top:58%;width:30px;height:30px;background:#f4f7fc;border-radius:50%}
+.ticket:before{left:-15px}.ticket:after{right:-15px}
+ /* ======================================
+PREMIUM CARD EFFECT
+====================================== */
+
+.ticket{
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.ticket:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 45px rgba(37,99,235,.18);
+
+}
+
+.ticket::after{
+
+transition:.35s;
+
+}
+
+.ticket:hover::after{
+
+background:#e8eefc;
+
+}
+
+/* ======================================
+BEST SELLER
+====================================== */
+
+.best{
+
+position:absolute;
+
+top:16px;
+
+right:-42px;
+
+padding:6px 48px;
+
+background:linear-gradient(135deg,#ef4444,#dc2626);
+
+color:#fff;
+
+font-size:11px;
+
+font-weight:800;
+
+transform:rotate(45deg);
+
+letter-spacing:.5px;
+
+box-shadow:0 4px 12px rgba(0,0,0,.2);
+
+}
+
+/* ======================================
+PRICE
+====================================== */
+
+.price{
+
+transition:.3s;
+
+}
+
+.ticket:hover .price{
+
+color:#1d4ed8;
+
+transform:scale(1.08);
+
+}
+
+/* ======================================
+BUTTON
+====================================== */
+
+.select-btn{
+
+transition:.25s;
+
+}
+
+.select-btn:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 25px rgba(37,99,235,.3);
+
+}
+
+.qbtn{
+
+transition:.25s;
+
+}
+
+.qbtn:hover{
+
+background:#1d4ed8;
+
+transform:scale(1.08);
+
+}
+
+/* ======================================
+SALE BADGE
+====================================== */
+
+.sale{
+
+animation:pulseSale 2s infinite;
+
+}
+
+@keyframes pulseSale{
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+}
+
+/* ======================================
+CARD FADE
+====================================== */
+
+.ticket{
+
+animation:cardShow .6s ease;
+
+}
+
+@keyframes cardShow{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+.top{display:flex;justify-content:space-between}
+.name{font-size:16px;font-weight:800}
+.sale{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;padding:5px 10px;border-radius:999px;font-size:10px;font-weight:800}
+.meta{font-size:12px;color:#6b7280;line-height:1.7;margin-top:6px}
+.divider{border-top:2px dashed #d1d5db;margin:12px -14px}
+.bottom{display:flex;justify-content:space-between;align-items:center}
+.price{font-size:22px;font-weight:800;color:#2563eb}
+.select-btn,.qbtn{border:none;cursor:pointer}
+.select-btn{background:#2563eb;color:#fff;padding:10px 16px;border-radius:10px;font-weight:700}
+.qty{display:none;align-items:center;gap:8px}
+.qbtn{width:36px;height:36px;border-radius:10px;background:#2563eb;color:#fff;font-size:18px}
+.brand-footer{margin-top:10px;padding-top:10px;border-top:1px solid #eef2f7;font-size:12px;color:#64748b}
+.signature{
+    text-align:center;
+    margin-top:80px;
+    margin-bottom:120px;
+    padding-bottom:30px
+}
+.floating{
+    max-width:796px;
+    margin:auto;
+}
+
+.signature img{width:110px;height:110px;object-fit:contain}
+.signature h2{font-size:36px;font-weight:800;letter-spacing:-1px;margin-top:8px}
+.signature p{color:#64748b}
+.floating{position:fixed;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);padding:15px 18px;border-radius:22px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 18px 40px rgba(0,0,0,.15)}
+.total{font-size:22px;font-weight:800}
+.buy{border:none;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#fff;padding:15px 24px;border-radius:14px;font-weight:800}
+.buy:disabled{opacity:.4}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="brand"><img src="logo-event.png"><div><h1>POLIPONI</h1><p>Official Ticketing</p></div></div>
+<div class="right"><div class="country">🇮🇩 ID</div><div class="menu">☰</div></div>
+</header>
+
+<div class="wrap">
+<div class="hero"><img src="banner.png"><div class="overlay"></div><div class="event"><h2>POLIPONI 2026</h2><p>Tiket resmi & terpercaya</p></div></div>
+
+<div class="page-title"><h3>Pilih Tiket</h3><p>Pilih kategori tiket untuk melanjutkan pemesanan.</p></div>
+
+<div class="progress">
+
+<div class="steps">
+
+<div class="step active">1</div>
+
+<div class="line active-line"></div>
+
+<div class="step inactive">2</div>
+
+<div class="line"></div>
+
+<div class="step inactive">3</div>
+
+<div class="line"></div>
+
+<div class="step inactive">4</div>
+
+</div>
+
+<div class="labels">
+
+<span>Kategori</span>
+
+<span>Data</span>
+
+<span>Pembayaran</span>
+
+<span>Selesai</span>
+
+</div>
+
+</div>
+
+<div class="progress-wrap">
+
+<div class="progress-text">
+
+🔥 Tiket Terjual
+
+<span>85%</span>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<div id="cards"></div>
+
+</div>
+
+<div class="signature">
+<img src="logo-event.png">
+<h2>POLIPONI</h2>
+<p>Official Ticketing</p>
+<p>Secure • Trusted • Fast</p>
+</div>
+</div>
+
+<div class="floating">
+<div><div id="qtyText">0 Tiket Dipilih</div><div id="totalText" class="total">Rp 0</div></div>
+<button id="checkout" class="buy" disabled>BELI TIKET</button>
+</div>
+
+<script>
+const ticketList=[["Premium",450000],["Festival",300000],["Fast Track",625000]];
+const cart={},cards=document.getElementById('cards');
+const rp=n=>"Rp "+n.toLocaleString('id-ID');
+
+ticketList.forEach((t,i)=>{
+cart[t[0]]=0;
+cards.innerHTML+=`
+<div class="ticket">
+
+${i==0?'<div class="best">BEST SELLER</div>':''}
+<div class="top"><div class="name">${t[0]}</div><div class="sale">ON SALE</div></div><div class="meta">• Tiket resmi ETATIX<br>• Akses masuk sesuai kategori<br>• Transaksi aman & terpercaya</div><div class="divider"></div><div class="bottom"><div class="price">${rp(t[1])}</div><div><button class="select-btn" id="s${i}" onclick="start(${i})">Pilih Tiket</button><div class="qty" id="q${i}"><button class="qbtn" onclick="minus(${i})">−</button><div id="n${i}">1</div><button class="qbtn" onclick="plus(${i})">+</button></div></div></div><div class="brand-footer">Official Ticketing Partner • ETATIX</div></div>`;
+});
+
+
+function start(i){
+    cart[ticketList[i][0]] = 1;
+    toggle(i,false);
+    render(i);
+}
+
+function plus(i){
+    cart[ticketList[i][0]]++;
+    render(i);
+}
+
+function minus(i){
+    cart[ticketList[i][0]]--;
+
+    if(cart[ticketList[i][0]] <= 0){
+        cart[ticketList[i][0]] = 0;
+        toggle(i,true);
+    }
+
+    render(i);
+}
+
+function toggle(i,showButton){
+    document.getElementById("s"+i).style.display = showButton ? "block" : "none";
+    document.getElementById("q"+i).style.display = showButton ? "none" : "flex";
+}
+
+function render(i){
+
+    const qtyElement = document.getElementById("n"+i);
+
+    if(qtyElement){
+        qtyElement.textContent = cart[ticketList[i][0]];
+    }
+
+    let qty = 0;
+    let total = 0;
+    const items = [];
+
+    ticketList.forEach(function(t){
+
+        const q = cart[t[0]];
+
+        if(q > 0){
+
+            qty += q;
+            total += q * t[1];
+
+            items.push({
+                nama: t[0],
+                qty: q,
+                harga: t[1]
+            });
+
+        }
+
+    });
+
+    document.getElementById("qtyText").textContent =
+        qty + " Tiket Dipilih";
+
+    document.getElementById("totalText").textContent =
+        rp(total);
+
+    document.getElementById("checkout").disabled = qty === 0;
+
+    localStorage.setItem(
+        "checkout_items",
+        JSON.stringify(items)
+    );
+
+    localStorage.setItem(
+        "jumlahTiket",
+        qty
+    );
+
+    localStorage.setItem(
+        "totalPembayaran",
+        total
+    );
+
+}
+
+document.getElementById("checkout").onclick = function(){
+
+    if(Object.values(cart).every(v=>v===0)){
+        alert("Silakan pilih tiket terlebih dahulu.");
+        return;
+    }
+
+    location.href = "form.html";
+
+};
+</script>
+</body>
+</html>
